@@ -6,6 +6,10 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("btn-logout").addEventListener("click", logout);
   document.getElementById("btn-guardar").addEventListener("click", guardarProducto);
   cargarProductos();
+  if (localStorage.getItem("sesion") === "activa") {
+    document.getElementById("login").classList.add("oculto")
+    document.getElementById("admin").classList.remove("oculto")
+  }
 });
 
 /* ---------- LOGIN ---------- */
@@ -21,6 +25,7 @@ function login() {
   } else {
     msg.textContent = "Usuario o contrasena incorrectos.";
   }
+  localStorage.setItem("sesion", "activa")
 }
 function logout() {
   document.getElementById("admin").classList.add("oculto");
