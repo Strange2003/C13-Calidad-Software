@@ -6,10 +6,10 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("btn-logout").addEventListener("click", logout);
   document.getElementById("btn-guardar").addEventListener("click", guardarProducto);
   cargarProductos();
-  if (localStorage.getItem("sesion") === "activa") {
-    document.getElementById("login").classList.add("oculto")
-    document.getElementById("admin").classList.remove("oculto")
-  }
+  //if (localStorage.getItem("sesion") === "activa") {
+    //document.getElementById("login").classList.add("oculto")
+    //document.getElementById("admin").classList.remove("oculto")
+  //}
 });
 
 /* ---------- LOGIN ---------- */
@@ -18,14 +18,14 @@ function login() {
   const c = document.getElementById("clave").value.trim();
   const msg = document.getElementById("login-msg");
   if (u === "admin" && c === "1234") {           // login de demostracion
-    //document.getElementById("login").classList.add("oculto");
-    //document.getElementById("admin").classList.remove("oculto");
+    document.getElementById("login").classList.add("oculto");
+    document.getElementById("admin").classList.remove("oculto");
     msg.textContent = "";
     render();
   } else {
     msg.textContent = "Usuario o contrasena incorrectos.";
   }
-  //localStorage.setItem("sesion", "activa")
+  localStorage.setItem("sesion", "activa")
 }
 function logout() {
   document.getElementById("admin").classList.add("oculto");
